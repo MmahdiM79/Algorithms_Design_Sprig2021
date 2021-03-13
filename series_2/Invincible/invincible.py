@@ -27,5 +27,6 @@ if __name__ == "__main__":
             largest_bucket = bucket
 
 
+    print(largest_bucket[1][0])
     
 
