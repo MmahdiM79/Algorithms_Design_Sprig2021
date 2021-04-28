@@ -77,6 +77,9 @@ if __name__ == "__main__":
                         break
                     else:
                         equals += 1
+                else:
+                    greater_index = i
+
 
                 
                 for j in range(lower_index, -1, -1):
@@ -85,6 +88,8 @@ if __name__ == "__main__":
                         break
                     else:
                         equals += 1
+                else:
+                    lower_index = j
 
                 break
                     
