@@ -34,15 +34,40 @@ if __name__ == "__main__":
 
 
         start, end = 0, n-1
+        mid = (start + end)//2
     
         while True:
-        
-            mid = (end + start)//2
+
+
+            if start == mid:
+
+                if n == 1:
+                    lower_index = -1
+                    equals = 1 if array[0] == curr else 0
+                    greater_index = n
+                    break
+
+                if n == 2:
+                    for i in range(n):
+                        lower_index += 1 if curr < array[i] else 0
+                        equals += 1 if curr == array[i] else 0
+                        greater_index += 1 if curr > array[i] else 0
+                    
+                    lower_index -= 1
+                    greater_index += n
+                    break
+
+
+                greater_index = n - greater_index
+                break
+
             
+            mid = (start + end)//2
+
 
             if array[mid] == curr:
-                equals = 1
                 lower_index = mid-1
+                equals = 1
                 greater_index = mid+1
                 
 
@@ -65,14 +90,13 @@ if __name__ == "__main__":
                     
 
             
-            if start == mid:
-                greater_index = n - greater_index
-                break
 
             if curr < array[mid]:
-                end = greater_index = mid
+                end = mid
+                greater_index = mid
             else:
-                start = lower_index = mid+1
+                start = mid+1
+                lower_index = mid+1
                 
 
 
