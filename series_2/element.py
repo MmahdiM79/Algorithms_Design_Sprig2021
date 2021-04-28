@@ -42,9 +42,7 @@ if __name__ == "__main__":
             if start == mid:
 
                 if n == 1:
-                    lower_index = -1
                     equals = 1 if array[0] == curr else 0
-                    greater_index = n
                     break
 
                 if n == 2:
@@ -53,8 +51,6 @@ if __name__ == "__main__":
                         equals += 1 if curr == array[i] else 0
                         greater_index += 1 if curr > array[i] else 0
                     
-                    lower_index -= 1
-                    greater_index += n
                     break
 
 
@@ -91,6 +87,9 @@ if __name__ == "__main__":
                 else:
                     lower_index = j-1
 
+
+                lower_index += 1
+                greater_index = n - greater_index
                 break
                     
 
@@ -107,6 +106,6 @@ if __name__ == "__main__":
 
 
 
-        print(f"{lower_index + 1} {equals} {n - greater_index}")
+        print(f"{lower_index} {equals} {greater_index}")
         lower_index = equals = greater_index = 0
     
