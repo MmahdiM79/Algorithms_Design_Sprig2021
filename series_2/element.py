@@ -5,12 +5,6 @@
 
 
 
-
-
-
-from typing import Counter
-
-
 if __name__ == "__main__":
 
     n = int(input())
@@ -26,7 +20,7 @@ if __name__ == "__main__":
     num_questions = int(input())
 
 
-    lower = 0; equal = 0; greater = 0
+    lower_index = 0; equals = 0; greater_index = 0
 
     for _ in range(num_questions):
 
@@ -40,7 +34,6 @@ if __name__ == "__main__":
 
 
         start, end = 0, len(array)-1
-        m = 2
     
         while True:
         
@@ -48,33 +41,25 @@ if __name__ == "__main__":
             
 
             if array[mid] == curr:
-                equal += 1
-                if lower == 0:
-                    lower = n//m
-                if greater == 0:
-                    greater = n//m
+                equals = 1
+                lower_index = mid-1
+                greater_index = mid+1
+                
 
-                equal_r = 0
-                for i in range(mid+1, n):
+                for i in range(greater_index, n):
                     if array[i] != curr:
+                        greater_index = i
                         break
                     else:
-                        equal_r += 1
+                        equals += 1
 
-                equal += equal_r
-                greater -= equal_r
-
-
-                equal_l = 0
-                for j in range(mid-1, -1, -1):
+                
+                for j in range(lower_index, -1, -1):
                     if array[j] != curr:
+                        lower_index = j
                         break
                     else:
-                        equal_l += 1
-
-                equal += equal_l
-                lower -= equal_l
-
+                        equals += 1
 
                 break
                     
@@ -83,18 +68,15 @@ if __name__ == "__main__":
             if start == mid:
                 break
 
-            if curr > array[mid]:
-                lower += n//m + 1
-                start = mid
+            if curr < array[mid]:
+                end = greater_index = mid
             else:
-                greater += n//m + 1
-                end = mid
-
-            m *= 2
+                start = lower_index = mid+1
+                
 
 
 
 
-        print(f"{lower} {equal} {greater}")
-        lower = equal = greater = 0
+        print(f"{lower_index + 1} {equals} {n - greater_index}")
+        lower_index = equals = greater_index = 0
     
