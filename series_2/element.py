@@ -80,7 +80,7 @@ if __name__ == "__main__":
                     
 
             
-            if start == :
+            if start == mid:
                 break
 
             if curr > array[mid]:
