@@ -8,6 +8,9 @@
 
 
 
+from typing import Counter
+
+
 if __name__ == "__main__":
 
     n = int(input())
@@ -15,8 +18,8 @@ if __name__ == "__main__":
     array = [int(x) for x in input().split()]
     array.sort()
 
-    # M = max(array)
-    # m = min(array)
+    Max = max(array)
+    Min = min(array)
 
 
 
@@ -28,6 +31,12 @@ if __name__ == "__main__":
     for _ in range(num_questions):
 
         curr = int(input())
+        if curr < Min:
+            print(f'0 0 {n}')
+            continue
+        if curr > Max:
+            print(f'{n} 0 0')
+            continue
 
 
         start, end = 0, len(array)-1
@@ -36,9 +45,6 @@ if __name__ == "__main__":
         while True:
         
             mid = (end + start)//2
-            
-            if start == mid:
-                break
             
 
             if array[mid] == curr:
@@ -72,7 +78,11 @@ if __name__ == "__main__":
 
                 break
                     
+
             
+            if start == :
+                break
+
             if curr > array[mid]:
                 lower += n//m + 1
                 start = mid
@@ -81,6 +91,8 @@ if __name__ == "__main__":
                 end = mid
 
             m *= 2
+
+
 
 
         print(f"{lower} {equal} {greater}")
