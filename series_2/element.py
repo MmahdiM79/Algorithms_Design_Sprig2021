@@ -33,7 +33,7 @@ if __name__ == "__main__":
             continue
 
 
-        start, end = 0, len(array)-1
+        start, end = 0, n-1
     
         while True:
         
@@ -66,6 +66,7 @@ if __name__ == "__main__":
 
             
             if start == mid:
+                greater_index = n - greater_index
                 break
 
             if curr < array[mid]:
