@@ -52,3 +52,10 @@ if __name__ == "__main__":
     n = int(input())
     arr = [int(num) for num in input().split(' ')]
     pivots = [int(num) for num in input().split(' ')]
+
+
+    randomized_quick_sort(arr, 0, len(arr)-1)
+    places = {}
+    for i in range(n):
+        places[arr[i]] = i
+
