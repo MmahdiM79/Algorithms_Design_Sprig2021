@@ -42,15 +42,15 @@ def randomized_quick_sort(array: list, p: int, r: int) -> None:
 
 
 
-def solve(array: list, p: int, r: int) -> None:
+def solve(p: int, r: int) -> None:
 
     global count, places, pivots
 
-    if p < r:
-        count += r - p + 1
-        q = pivots.pop(0)
-        solve(array, p, q-1)
-        solve(array, q+1, r)
+    if r-p >= 1:
+        count += r - p - 1
+        q = places[pivots.pop(0)]
+        solve(p, q)
+        solve(q+1, r)
 
         
 
@@ -74,5 +74,7 @@ if __name__ == "__main__":
         
 
     count = 0
-    solve(arr, 0, n-1)
+    solve(0, n)
 
+
+    print(count)
