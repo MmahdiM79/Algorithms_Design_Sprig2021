@@ -42,6 +42,19 @@ def randomized_quick_sort(array: list, p: int, r: int) -> None:
 
 
 
+def solve(array: list, p: int, r: int) -> None:
+
+    global count, places, pivots
+
+    if p < r:
+        count += r - p + 1
+        q = pivots.pop(0)
+        solve(array, p, q-1)
+        solve(array, q+1, r)
+
+        
+
+
 
 
 
@@ -54,8 +67,12 @@ if __name__ == "__main__":
     pivots = [int(num) for num in input().split(' ')]
 
 
-    randomized_quick_sort(arr, 0, len(arr)-1)
+    randomized_quick_sort(arr, 0, n-1)
     places = {}
     for i in range(n):
         places[arr[i]] = i
+        
+
+    count = 0
+    solve(arr, 0, n-1)
 
