@@ -17,9 +17,9 @@ if __name__ == "__main__":
         buckets[i] = []
 
 
+    for num in input().split():
+        buckets[int(num)//k].append(int(num))
 
 
-
-    arr = [int(num) for num in input().split(' ')]
-
+    
 
