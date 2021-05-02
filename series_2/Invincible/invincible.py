@@ -21,5 +21,11 @@ if __name__ == "__main__":
         buckets[int(num)//k].append(int(num))
 
 
+    largest_bucket = (-1, [])
+    for bucket in buckets.items():
+        if len(bucket[1]) > len(largest_bucket[1]):
+            largest_bucket = bucket
+
+
     
 
