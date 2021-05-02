@@ -49,3 +49,6 @@ def randomized_quick_sort(array: list, p: int, r: int) -> None:
 
 if __name__ == "__main__":
 
+    n = int(input())
+    arr = [int(num) for num in input().split(' ')]
+    pivots = [int(num) for num in input().split(' ')]
