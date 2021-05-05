@@ -36,24 +36,21 @@ public class Dior
     {
         int n = in.nextInt();
 
-        long hold;
         for (int i = 0; i < n; i++)
-        {
-            hold = in.nextLong();
-            arr.add(hold);
-            places.put(hold, i);
-        }
+            arr.add(in.nextLong());
 
         pivots = new long[n];
         for (int i = 0; i < n; i++)
             pivots[i] = in.nextLong();
 
 
-
         Collections.sort(arr);
+        for (int i = 0; i < n; i++)
+            places.put(arr.get(i), i);
 
+
+            
         solve(0, n);
-        
         System.out.println(count);
     }
 }
