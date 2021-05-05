@@ -1,4 +1,4 @@
-import java.util.Scanner
+import java.util.*;
 
 
 
@@ -8,16 +8,17 @@ import java.util.Scanner
 public class Dior
 {
     private static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) 
     {
-        long n = in.nextInt();
+        int n = in.nextInt();
 
-        long arr[n] = new long[n];
+        ArrayList<Long> arr = new ArrayList();
         for (int i = 0; i < n; i++)
-            arr[i] = in.nextInt();
+            arr.add(in.nextLong());
 
-        long pivots = new long[n];
-        for (int i = 0; i < n; i++)
-            pivots[i] = in.nextInt();
+
+        Collections.sort(arr);
+        System.out.println(arr);
     }
 }
