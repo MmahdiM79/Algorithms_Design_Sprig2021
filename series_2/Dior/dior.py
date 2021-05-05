@@ -1,5 +1,5 @@
-from sys import setrecursionlimit
-setrecursionlimit(2500*1000)
+import sys
+sys.setrecursionlimit(2500*1000)
 
 
 
@@ -24,8 +24,9 @@ def solve(p: int, r: int) -> None:
 if __name__ == "__main__":
 
     n = int(input())
-    arr = [int(num) for num in input().split(' ')]
-    pivots = [int(num) for num in input().split(' ')]
+    arr = [int(num) for num in input().split()]
+    pivots = [int(num) for num in input().split()]
+
 
     arr.sort()
 
